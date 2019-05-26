@@ -60,47 +60,44 @@ function assignedTasks()
 	else
 	{	
 		for(var i = 0; i < tasks.length; i++)
+		{
+			var out = "";
+			out += "<ol id='tasksContainer'>";
+
+			for(let i = 0; i < tasks.length; i++)
 			{
-	
-	
-				var out = "";
-				out += "<ol id='tasksContainer'>";
-
-				for(let i = 0; i < tasks.length; i++)
-				{
-					out += "<li class='output'>" + tasks[i] +"<span class='spanCheck' ><input type='checkbox' class='checkbox'>complet</span></li>";
-				}
-
-				out += "</ol>";
-				main.innerHTML=out;
-
-				var arr = document.querySelectorAll(".checkbox");
-
-				for(var i = 0; i < arr.length; i ++)
-				{
-					arr[i].onclick = completet;
-				}
-				
-				
-				function completet ()
-				{	
-		
-					var elem  = event.target.parentElement.parentElement.childNodes[0].textContent;
-					
-					rez2[rez2.length] = elem;
-
-					localStorage.setItem( "complet", JSON.stringify(rez2) );
-
-					localStorage.removeItem("toDo");
-					tasks.splice(tasks.indexOf(elem), 1)
-
-					localStorage.setItem( "toDo", JSON.stringify(tasks));	
-
-					main.innerHTML = "<h2>Task Successfully complet<i class='fa fa-check addIcon' aria-hidden='true'></i></h2>";
-					
-				}
-
+				out += "<li class='output'>" + tasks[i] +"<span class='spanCheck' ><input type='checkbox' class='checkbox'>complet</span></li>";
 			}
+
+			out += "</ol>";
+			main.innerHTML=out;
+
+			var arr = document.querySelectorAll(".checkbox");
+
+			for(var i = 0; i < arr.length; i ++)
+			{
+				arr[i].onclick = completet;
+			}
+				
+				
+			function completet ()
+			{	
+		
+				var elem  = event.target.parentElement.parentElement.childNodes[0].textContent;
+					
+				rez2[rez2.length] = elem;
+
+				localStorage.setItem( "complet", JSON.stringify(rez2) );
+
+				localStorage.removeItem("toDo");
+				tasks.splice(tasks.indexOf(elem), 1)
+
+				localStorage.setItem( "toDo", JSON.stringify(tasks));	
+				main.innerHTML = "<h2>Task Successfully complet<i class='fa fa-check addIcon' aria-hidden='true'></i></h2>";
+				
+			}
+
+		}
 	}
 }
 	
