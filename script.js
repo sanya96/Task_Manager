@@ -26,7 +26,7 @@ if(localStorage.getItem("complet") != undefined)
 
 function newTask()
 {
-	main.innerHTML = "<fieldset><input type='text' id='addTask' placeholder='input your task'><input type='button' id='add' value='Add'></fieldset>";
+	main.innerHTML = "<fieldset><input type='text' id='addTask' placeholder='input your task'><input type='button' id='add' value='Add' autofocus></fieldset>";
 
 	var add = document.querySelector("#add");
 	var input = document.querySelector("#addTask");
@@ -135,7 +135,7 @@ function completedTasks()
 	 let deleteElem  = event.target.parentElement.parentElement.childNodes[0].textContent;
 						
 		
-	 rez2.splice(rez2.indexOf(deleteElem), 1)
+	 rez2.splice(rez2.indexOf(deleteElem), 1);
 
 	 localStorage.setItem( "complet", JSON.stringify(rez2));	
 		
