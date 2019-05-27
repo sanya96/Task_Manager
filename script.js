@@ -26,7 +26,7 @@ if(localStorage.getItem("complet") != undefined)
 
 function newTask()
 {
-	main.innerHTML = "<fieldset><input type='text' id='addTask' placeholder='input your task'><input type='button' id='add' value='Add' autofocus></fieldset>";
+	main.innerHTML = "<fieldset><input type='text' id='addTask' placeholder='input your task' autofocus><input type='button' id='add' value='Add' ></fieldset>";
 
 	var add = document.querySelector("#add");
 	var input = document.querySelector("#addTask");
